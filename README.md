@@ -14,4 +14,8 @@ void setup(){
   scrambleToText("Scramble Text", 10, 1, 100);
   scrambleTypewriterText("scrambleTypewriter Text", 10, 1, 100);
 }
+
+void loop(){
+  //Your loop Code
+}
 ```
