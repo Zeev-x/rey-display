@@ -16,6 +16,8 @@ void initDisplay() {
   typewriterText("Presented by:", 10, 1, 50);
   typewriterText("ReyDisplay", 26, 2, 100);
   typewriterText("version 1.0", 50, 1, 50);
+  delay(200);
+  display.clearDisplay();
 }
 
 //Text default no animation
