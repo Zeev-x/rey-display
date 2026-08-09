@@ -7,16 +7,13 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 void initDisplay() {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  randomSeed(analogRead(0));
   display.clearDisplay();
   scrambleTypewriterText("Reyette-Project", 10, 1, 50);
   typewriterText("ESP32", 24, 3, 200);
+  errorScreenEffect();
   display.display();
   delay(200);
-  /*display.clearDisplay();
-  typewriterText("Presented by:", 10, 1, 50);
-  typewriterText("ReyDisplay", 26, 2, 100);
-  typewriterText("version 1.0", 50, 1, 50);
-  delay(200);*/
   display.clearDisplay();
 }
 
@@ -134,4 +131,24 @@ void scrambleTypewriterText(const char* target, int y, int size, int charDelay) 
 
     delay(charDelay);
   }
+}
+
+//SFX
+void errorScreenEffect(){
+  randomSeed(analogRead(0));
+  auto sfx = [](int z, int a){
+    for (int x = 0; x < a; x++){
+      display.invertDisplay(true);
+      delay(z);
+      display.invertDisplay(false);
+      delay(z);
+    }
+  };
+
+  int S = random(1, 6);
+  int F = random(20, 101);
+  int X = random(500, 1001);
+
+  sfx(F, S);
+  delay(X);
 }
