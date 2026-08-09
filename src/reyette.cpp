@@ -135,7 +135,6 @@ void scrambleTypewriterText(const char* target, int y, int size, int charDelay) 
 
 //SFX
 void errorScreenEffect(){
-  randomSeed(analogRead(0));
   auto sfx = [](int z, int a){
     for (int x = 0; x < a; x++){
       display.invertDisplay(true);
