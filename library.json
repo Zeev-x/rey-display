@@ -1,6 +1,6 @@
 {
   "name": "rey-display",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library ESP32 untuk utilitas display.",
   "keywords": ["esp32", "display", "utilities"],
   "authors": [
