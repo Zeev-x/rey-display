@@ -1,0 +1,30 @@
+{
+  "name": "rey-display",
+  "version": "1.0.0",
+  "description": "Library ESP32 untuk utilitas display.",
+  "keywords": ["esp32", "display", "utilities"],
+  "authors": [
+    {
+      "name": "Reyette",
+      "email": "secreet@gmail.com",
+      "url": "https://github.com/Zeev-x"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Zeev-x/rey-display",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zeev-x/rey-display.git"
+  },
+  "frameworks": ["arduino", "espidf"],
+  "platforms": ["espressif32"],
+  "dependencies": {},
+  "build": {
+    "include": ["src"],
+    "flags": [
+      "-DISPLAY_LIBRARY"
+    ]
+  }
+}
+
+
