@@ -9,13 +9,14 @@ Example code:
 
 void setup(){
   initDisplay();
-  centerText("Center Text", 1, 2);
-  typewriterText("Typewriter Text", 10, 1, 100);
-  scrambleToText("Scramble Text", 10, 1, 100);
-  scrambleTypewriterText("scrambleTypewriter Text", 10, 1, 100);
+  display.clearDisplay();
+  centerText("Center", 10, 1);
+  typewriterText("Typewriter", 22, 1, 100);
+  scrambleToText("Scramble", 35, 1, 100);
+  scrambleTypewriterText("scrambleTypewriter", 48, 1, 100);
 }
 
 void loop(){
-  //Your loop Code
+  //Loop code here
 }
 ```
