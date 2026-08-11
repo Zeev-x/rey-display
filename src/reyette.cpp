@@ -1,6 +1,15 @@
-#include "config.h"
+#include <Arduino.h>
 #include "reyette.h"
 
+#if defined(LCD32)
+  #define SCREEN_HEIGHT 32
+#elif defined(LCD64)
+  #define SCREEN_HEIGHT 64
+#else
+  #error "Use LCD32 or LCD64"
+#endif
+
+#define SCREEN_WIDTH 128
 #define OLED_BIG (SCREEN_HEIGHT == 64)
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
@@ -8,13 +17,26 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 void initDisplay() {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   randomSeed(analogRead(0));
-  display.clearDisplay();
-  scrambleTypewriterText("Reyette-Project", 10, 1, 50);
-  typewriterText("ESP32", 24, 3, 200);
-  errorScreenEffect();
-  display.display();
-  delay(200);
-  display.clearDisplay();
+  #if OLED_BIG
+    display.clearDisplay();
+    scrambleTypewriterText("Reyette-Project", 10, 1, 50);
+    typewriterText("ESP32", 24, 3, 200);
+    errorScreenEffect();
+    display.display();
+    delay(200);
+    display.clearDisplay();
+  #else
+    display.clearDisplay();
+    scrambleTypewriterText("Reyette-Project", 16, 1, 50);
+    display.display();
+    delay(200);
+    display.clearDisplay();
+    typewriterText("ESP32", 10, 2, 200);
+    errorScreenEffect();
+    display.display();
+    delay(200);
+    display.clearDisplay();
+  #endif
 }
 
 //Text default no animation
