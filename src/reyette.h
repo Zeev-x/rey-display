@@ -9,6 +9,3 @@ void typewriterText(const char* text, int y, int size, int charDelay);
 void scrambleToText(const char* target, int y, int size, int stepDelay);
 void scrambleTypewriterText(const char* target, int y, int size, int charDelay);
 void errorScreenEffect();
-
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64 // changes your screen size
