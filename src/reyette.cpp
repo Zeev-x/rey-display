@@ -16,7 +16,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 void initDisplay() {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  randomSeed(analogRead(0));
+  randomSeed(micros());
   #if OLED_BIG
     display.clearDisplay();
     scrambleTypewriterText("Reyette-Project", 10, 1, 50);
@@ -27,7 +27,7 @@ void initDisplay() {
     display.clearDisplay();
   #else
     display.clearDisplay();
-    scrambleTypewriterText("Reyette-Project", 16, 1, 50);
+    scrambleTypewriterText("Reyette-Project", 10, 1, 50);
     display.display();
     delay(200);
     display.clearDisplay();
